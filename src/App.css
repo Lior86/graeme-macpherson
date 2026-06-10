@@ -191,8 +191,17 @@ body {
   border: 1px solid #e0ddd8;
   border-radius: 8px;
   padding: 28px 32px;
-  ont-size: 17px;
+  font-size: 17px;
   color: #1a2744;
+}
+
+.area-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 .faq-list {
@@ -309,3 +318,14 @@ body {
   font-size: 18px;
 }
 
+/* Scroll fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

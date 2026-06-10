@@ -1,9 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import graemePhoto from './Images/graeme.png.png';
 import './App.css';
 import heroBg from './Images/hero-bg.jpg.jpg';
+import { MdBusiness, MdHome, MdFamilyRestroom, MdDescription } from 'react-icons/md'; 
+
+function useFadeIn() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+}
 
 function App() {
+  
+  useFadeIn();
   const scrollTo = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   };
@@ -39,7 +61,7 @@ function App() {
         <button className="hero-btn" onClick={() => scrollTo('contact')}>Book a Consultation</button>
       </section>
 
-      <section className="section" id="about">
+      <section className="section fade-in" id="about">
         <div className="about-inner">
           <img src={graemePhoto} alt="Graeme Macpherson" className="about-photo" />
           <div className="about-text">
@@ -50,20 +72,20 @@ function App() {
         </div>
       </section>
 
-      <section className="section section-alt" id="areas">
+      <section className="section section-alt fade-in" id="areas">
         <div className="section-inner">
           <p className="section-label">Practice Areas</p>
           <h2>How I can help</h2>
           <div className="areas-grid">
-            <div className="area-card">🏢 Corporate Law</div>
-            <div className="area-card">🏠 Real Estate</div>
-            <div className="area-card">❤️ Family Law</div>
-            <div className="area-card">📄 Wills & Estates</div>
+  <div className="area-card"><MdBusiness /> Corporate Law</div>
+<div className="area-card"><MdHome /> Real Estate</div>
+<div className="area-card"><MdFamilyRestroom /> Family Law</div>
+<div className="area-card"><MdDescription /> Wills & Estates</div>
           </div>
         </div>
       </section>
 
-      <section className="section" id="faq">
+      <section className="section fade-in" id="faq">
         <div className="section-inner">
           <p className="section-label">FAQ</p>
           <h2>Common questions</h2>
@@ -99,7 +121,7 @@ function App() {
   </div>
 </section>
 
-      <section className="section contact-dark" id="contact">
+      <section className="section contact-dark fade-in" id="contact">
         <div className="section-inner" style={{textAlign: 'center'}}>
           <p className="section-label">Contact</p>
           <h2 style={{color: '#fff'}}>Get in touch</h2>
