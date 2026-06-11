@@ -3,6 +3,10 @@ import graemePhoto from './Images/graeme.png.png';
 import './App.css';
 import heroBg from './Images/hero-bg.jpg.jpg';
 import { MdBusiness, MdHome, MdFamilyRestroom, MdDescription } from 'react-icons/md'; 
+import { Routes, Route } from 'react-router-dom';
+import Blog from './Blog';
+import BlogPost from './BlogPost';
+import { Link } from 'react-router-dom';
 
 function useFadeIn() {
   useEffect(() => {
@@ -34,12 +38,11 @@ function AreaCard({ area }) {
 
 function App() {
   
-  
   useFadeIn();
   const scrollTo = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   };
-
+const [showCalendly, setShowCalendly] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -53,7 +56,12 @@ function App() {
   };
 
   return (
-    <div className="app">
+  <Routes>
+    <Route path="/blog/:slug" element={<BlogPost />} />
+    <Route path="/blog" element={<Blog />} />
+    <Route path="/" element={
+      <div className="app">
+  
       <nav className="navbar">
         <span className="nav-logo">Graeme Macpherson</span>
         <div className="nav-links">
@@ -61,6 +69,7 @@ function App() {
           <button onClick={() => scrollTo('areas')}>Practice Areas</button>
           <button onClick={() => scrollTo('faq')}>FAQ</button>
           <button onClick={() => scrollTo('contact')}>Contact</button>
+          <a href="/blog" target="_blank" rel="noreferrer">Blog</a>
         </div>
       </nav>
 
@@ -68,7 +77,7 @@ function App() {
         <div className="hero-tag">Solicitor · London, UK</div>
         <h1>Practical legal advice<br />you can count on</h1>
         <p>Clear, straightforward guidance for individuals and businesses navigating complex legal matters.</p>
-        <button className="hero-btn" onClick={() => scrollTo('contact')}>Book a Consultation</button>
+        <button className="hero-btn" onClick={() => setShowCalendly(true)}>Book a Consultation</button>
       </section>
 
       <section className="section fade-in" id="about">
@@ -140,8 +149,7 @@ function App() {
           <h2 style={{color: '#fff'}}>Get in touch</h2>
           <p className="section-body" style={{color: 'rgba(255,255,255,0.6)', margin: '0 auto 32px'}}>Ready to discuss your matter? Reach out and we'll take it from there.</p>
           <div className="contact-btns">
-            <a href="mailto:graeme@email.com" className="contact-btn primary">Book a Consultation</a>
-            <a href="mailto:graeme@email.com" className="contact-btn">Email</a>
+            <button className="contact-btn primary" onClick={() => setShowCalendly(true)}>Book a Consultation</button>
             <a href="tel:+44000000000" className="contact-btn">Phone</a>
             <a href="https://www.linkedin.com/in/graeme-macpherson-14668933b/" target="_blank" rel="noreferrer" className="contact-btn">LinkedIn</a>
           </div>
@@ -164,8 +172,17 @@ function App() {
       <footer className="footer">
         <span>© Graeme Macpherson · London, UK</span>
       </footer>
+      {showCalendly && (
+        <div className="calendly-overlay" onClick={() => setShowCalendly(false)}>
+          <div className="calendly-modal" onClick={e => e.stopPropagation()}>
+            <button className="calendly-close" onClick={() => setShowCalendly(false)}>✕</button>
+            <iframe src="https://calendly.com/lnaor86/30min" width="100%" height="100%" frameBorder="0"></iframe>
+          </div>
+        </div>
+      )}
     </div>
-  );
+  } />
+</Routes>
+);
 }
-
 export default App;
