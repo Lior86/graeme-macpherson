@@ -77,7 +77,7 @@ function App() {
           <div className="about-text">
             <p className="section-label">About</p>
             <h2>Here to help you move forward</h2>
-            <p className="section-body">Graeme Macpherson is a London-based solicitor with experience across corporate law, real estate, family matters, and estate planning. A graduate of the London School of Law, he believes in plain-English advice with no jargon, no surprises, just clear guidance when you need it most.</p>
+            <p className="section-body">Graeme Macpherson is a London-based solicitor and Associate in the Restructuring & Insolvency team at TLT LLP. A graduate of the London School of Economics and Political Science, he brings practical, clear-headed advice to clients navigating complex legal and financial challenges.</p>
           </div>
         </div>
       </section>
@@ -137,14 +137,13 @@ function App() {
 
       <section className="section contact-dark fade-in" id="contact">
         <div className="section-inner" style={{textAlign: 'center'}}>
-          <p className="section-label">Contact</p>
           <h2 style={{color: '#fff'}}>Get in touch</h2>
           <p className="section-body" style={{color: 'rgba(255,255,255,0.6)', margin: '0 auto 32px'}}>Ready to discuss your matter? Reach out and we'll take it from there.</p>
           <div className="contact-btns">
             <a href="mailto:graeme@email.com" className="contact-btn primary">Book a Consultation</a>
             <a href="mailto:graeme@email.com" className="contact-btn">Email</a>
             <a href="tel:+44000000000" className="contact-btn">Phone</a>
-            <a href="https://www.linkedin.com/in/graeme-macpherson" target="_blank" rel="noreferrer" className="contact-btn">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/graeme-macpherson-14668933b/" target="_blank" rel="noreferrer" className="contact-btn">LinkedIn</a>
           </div>
           {submitted ? (
             <div className="form-success">
