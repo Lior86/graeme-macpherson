@@ -22,8 +22,18 @@ function useFadeIn() {
     return () => observer.disconnect();
   }, []);
 }
+function AreaCard({ area }) {
+  const [open, setOpen] = useState(false);
+  return (
+  <div className="area-card" onClick={() => setOpen(!open)}>
+      {area.icon} {area.title}
+      {open && <p className="area-desc">{area.desc}</p>}
+    </div>
+    );
+}
 
 function App() {
+  
   
   useFadeIn();
   const scrollTo = (id) => {
@@ -77,10 +87,14 @@ function App() {
           <p className="section-label">Practice Areas</p>
           <h2>How I can help</h2>
           <div className="areas-grid">
-  <div className="area-card"><MdBusiness /> Corporate Law</div>
-<div className="area-card"><MdHome /> Real Estate</div>
-<div className="area-card"><MdFamilyRestroom /> Family Law</div>
-<div className="area-card"><MdDescription /> Wills & Estates</div>
+  {[
+  { title: 'Corporate Law', icon: <MdBusiness />, desc: 'From shareholder agreements to contract disputes, Graeme helps businesses navigate legal risk with straightforward advice and no unnecessary complexity.' },
+  { title: 'Real Estate', icon: <MdHome />, desc: 'Whether you\'re buying, selling, or leasing, Graeme handles the legal side of property transactions so there are no surprises on completion day.' },
+  { title: 'Family Law', icon: <MdFamilyRestroom />, desc: 'Divorce, separation, and custody matters handled with sensitivity and clarity. Graeme focuses on practical outcomes that protect what matters most.' },
+  { title: 'Wills & Estates', icon: <MdDescription />, desc: 'A properly drafted will is one of the most important things you can do for your family. Graeme makes the process simple and ensures your wishes are clearly documented.' },
+].map((area, i) => (
+  <AreaCard key={i} area={area} />
+))}
           </div>
         </div>
       </section>
