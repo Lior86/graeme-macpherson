@@ -6,7 +6,7 @@ import { MdBusiness, MdHome, MdFamilyRestroom, MdDescription } from 'react-icons
 import { Routes, Route } from 'react-router-dom';
 import Blog from './Blog';
 import BlogPost from './BlogPost';
-import { Link } from 'react-router-dom';
+
 
 function useFadeIn() {
   useEffect(() => {
@@ -176,7 +176,7 @@ const [showCalendly, setShowCalendly] = useState(false);
         <div className="calendly-overlay" onClick={() => setShowCalendly(false)}>
           <div className="calendly-modal" onClick={e => e.stopPropagation()}>
             <button className="calendly-close" onClick={() => setShowCalendly(false)}>✕</button>
-            <iframe src="https://calendly.com/lnaor86/30min" width="100%" height="100%" frameBorder="0"></iframe>
+            <iframe title="Book a consultation" src="https://calendly.com/lnaor86/30min" width="100%" height="100%" frameBorder="0"></iframe>
           </div>
         </div>
       )}
