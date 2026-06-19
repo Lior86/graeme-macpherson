@@ -46,10 +46,18 @@ const [showCalendly, setShowCalendly] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  const response = await fetch('https://formspree.io/f/xrevnkao', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData),
+  });
+  if (response.ok) {
     setSubmitted(true);
-  };
+    setFormData({ name: '', email: '', phone: '', message: '' });
+  }
+};
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
