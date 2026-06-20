@@ -45,6 +45,7 @@ function App() {
 const [showCalendly, setShowCalendly] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSubmit = async (e) => {
   e.preventDefault();
@@ -70,16 +71,21 @@ const [showCalendly, setShowCalendly] = useState(false);
     <Route path="/" element={
       <div className="app">
   
-      <nav className="navbar">
-        <span className="nav-logo">Graeme Macpherson</span>
-        <div className="nav-links">
-          <button onClick={() => scrollTo('about')}>About</button>
-          <button onClick={() => scrollTo('areas')}>Practice Areas</button>
-          <button onClick={() => scrollTo('faq')}>FAQ</button>
-          <button onClick={() => scrollTo('contact')}>Contact</button>
-          <a href="/blog" target="_blank" rel="noreferrer">Blog</a>
-        </div>
-      </nav>
+   <nav className="navbar">
+  <span className="nav-logo">Graeme Macpherson</span>
+  <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+    <button onClick={() => { scrollTo('about'); setMenuOpen(false); }}>About</button>
+    <button onClick={() => { scrollTo('areas'); setMenuOpen(false); }}>Practice Areas</button>
+    <button onClick={() => { scrollTo('faq'); setMenuOpen(false); }}>FAQ</button>
+    <button onClick={() => { scrollTo('contact'); setMenuOpen(false); }}>Contact</button>
+    <a href="/blog" rel="noreferrer" onClick={() => setMenuOpen(false)}>Blog</a>
+  </div>
+</nav>
 
       <section className="hero" style={{backgroundImage: `url(${heroBg})`}}>
         <div className="hero-tag">Solicitor · London, UK</div>

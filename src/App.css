@@ -495,3 +495,116 @@ body {
   max-width: 500px;
   margin: 0 auto;
 }
+
+.hamburger {
+  display: none;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE — max-width 768px
+   Desktop styles above are completely unchanged
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  /* --- NAVIGATION: Hide links, show hamburger --- */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #1a2744;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    padding: 16px 0;
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+.nav-links a {
+  margin: 0!important;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: block;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  line-height: 1.5;
+box-sizing: border-box;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  /* --- ABOUT SECTION: Stack vertically, fix photo gap --- */
+  .about-inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-photo {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding-top: 0;        /* removes the white gap above photo */
+    align-self: flex-start;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .about-text {
+    width: 100%;
+  }
+
+  /* --- GENERAL SECTION PADDING on mobile --- */
+  .section-inner {
+    padding: 0 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+}
