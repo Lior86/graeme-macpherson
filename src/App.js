@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import graemePhoto from './Images/graeme.png.png';
+import michaelPhoto from './michael-weston.jpg';
 import './App.css';
 import heroBg from './Images/hero-bg.jpg.jpg';
 import { MdBusiness, MdHome, MdFamilyRestroom, MdDescription } from 'react-icons/md'; 
@@ -72,7 +72,7 @@ const [showCalendly, setShowCalendly] = useState(false);
       <div className="app">
   
    <nav className="navbar">
-  <span className="nav-logo">Graeme Macpherson</span>
+  <span className="nav-logo">Michael Weston</span>
   <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
     <span></span>
     <span></span>
@@ -96,25 +96,26 @@ const [showCalendly, setShowCalendly] = useState(false);
 
       <section className="section fade-in" id="about">
         <div className="about-inner">
-          <img src={graemePhoto} alt="Graeme Macpherson" className="about-photo" />
+          <img src={michaelPhoto} alt="Michael Weston" className="about-photo" />
           <div className="about-text">
             <p className="section-label">About</p>
             <h2>Here to help you move forward</h2>
-            <p className="section-body">Graeme Macpherson is a London-based solicitor and Associate in the Restructuring & Insolvency team at TLT LLP. A graduate of the London School of Economics and Political Science, he brings practical, clear-headed advice to clients navigating complex legal and financial challenges.</p>
+            <p className="section-body">Michael Weston is a London-based solicitor and Associate in the Restructuring & Insolvency team at TLT LLP. A graduate of the London School of Economics and Political Science, he brings practical, clear-headed advice to clients navigating complex legal and financial challenges.</p>
           </div>
         </div>
       </section>
-
+x
       <section className="section section-alt fade-in" id="areas">
-        <div className="section-inner">
+        <div className="section-inner">g
+
           <p className="section-label">Practice Areas</p>
           <h2>How I can help</h2>
           <div className="areas-grid">
   {[
-  { title: 'Corporate Law', icon: <MdBusiness />, desc: 'From shareholder agreements to contract disputes, Graeme helps businesses navigate legal risk with straightforward advice and no unnecessary complexity.' },
-  { title: 'Real Estate', icon: <MdHome />, desc: 'Whether you\'re buying, selling, or leasing, Graeme handles the legal side of property transactions so there are no surprises on completion day.' },
-  { title: 'Family Law', icon: <MdFamilyRestroom />, desc: 'Divorce, separation, and custody matters handled with sensitivity and clarity. Graeme focuses on practical outcomes that protect what matters most.' },
-  { title: 'Wills & Estates', icon: <MdDescription />, desc: 'A properly drafted will is one of the most important things you can do for your family. Graeme makes the process simple and ensures your wishes are clearly documented.' },
+  { title: 'Corporate Law', icon: <MdBusiness />, desc: 'From shareholder agreements to contract disputes, Michael helps businesses navigate legal risk with straightforward advice and no unnecessary complexity.' },
+  { title: 'Real Estate', icon: <MdHome />, desc: 'Whether you\'re buying, selling, or leasing, Michael handles the legal side of property transactions so there are no surprises on completion day.' },
+  { title: 'Family Law', icon: <MdFamilyRestroom />, desc: 'Divorce, separation, and custody matters handled with sensitivity and clarity. Michael focuses on practical outcomes that protect what matters most.' },
+  { title: 'Wills & Estates', icon: <MdDescription />, desc: 'A properly drafted will is one of the most important things you can do for your family. Michael makes the process simple and ensures your wishes are clearly documented.' },
 ].map((area, i) => (
   <AreaCard key={i} area={area} />
 ))}
@@ -151,7 +152,7 @@ const [showCalendly, setShowCalendly] = useState(false);
   <div className="section-inner" style={{textAlign: 'center'}}>
     <p className="section-label">Free Guide</p>
     <h2>Starting Smart: Corporate Law for UK Business Owners</h2>
-    <p className="section-body" style={{margin: '0 auto 32px'}}>A practical guide written by Graeme to help business owners understand the legal foundations that matter most.</p>
+    <p className="section-body" style={{margin: '0 auto 32px'}}>A practical guide written by Michael to help business owners understand the legal foundations that matter most.</p>
     <div className="book-embed" dangerouslySetInnerHTML={{__html: `<iframe allowfullscreen="allowfullscreen" allow="clipboard-write" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/74d63defd8.html" style="border: 1px solid lightgray; width: 100%; height: 400px;"></iframe>
   
                         `}} />
@@ -165,11 +166,11 @@ const [showCalendly, setShowCalendly] = useState(false);
           <div className="contact-btns">
             <button className="contact-btn primary" onClick={() => setShowCalendly(true)}>Book a Consultation</button>
             <a href="tel:+44000000000" className="contact-btn">Phone</a>
-            <a href="https://www.linkedin.com/in/graeme-macpherson-14668933b/" target="_blank" rel="noreferrer" className="contact-btn">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/michael-weston-14668933b/" target="_blank" rel="noreferrer" className="contact-btn">LinkedIn</a>
           </div>
           {submitted ? (
             <div className="form-success">
-              <p>Thank you! Graeme will be in touch shortly.</p>
+              <p>Thank you! Michael will be in touch shortly.</p>
             </div>
           ) : (
             <div className="contact-form">
@@ -184,7 +185,7 @@ const [showCalendly, setShowCalendly] = useState(false);
       </section>
 
       <footer className="footer">
-        <span>© Graeme Macpherson · London, UK</span>
+        <span>© Michael Weston · London, UK</span>
       </footer>
       {showCalendly && (
         <div className="calendly-overlay" onClick={() => setShowCalendly(false)}>
